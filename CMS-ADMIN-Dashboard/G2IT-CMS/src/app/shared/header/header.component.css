@@ -1,0 +1,41 @@
+.navbar-spacer {
+  flex: 1 1 auto;
+}
+
+.navbar {
+  z-index: 2;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+}
+
+.mat-toolbar-single-row {
+  height: 50px;
+}
+
+.mat-icon-button {
+  margin-left: 1vh;
+}
+
+/* Media query for all devices */
+@media all {
+  .mat-icon-button {
+    margin-left: 0.5vh; /* Adjust the margin as desired */
+  }
+}
+
+  .vertical-divider {
+    border-right: 1px solid white; /* Customize the divider's appearance */
+    height: 100%; /* Make the divider stretch to the full height of the row */
+    margin-left: 5.5vh;
+  }
+
+  @media (max-width: 768px) {
+    .vertical-divider {
+      margin-left: 0; /* Reset the left margin to remove spacing */
+      margin-top: 5px; /* Add some spacing between the divider and the content */
+    }
+  }
+ 

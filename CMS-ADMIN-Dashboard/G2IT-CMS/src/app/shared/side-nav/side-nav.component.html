@@ -1,0 +1,30 @@
+<mat-nav-list>
+  <ng-container *ngFor="let menuItem of menuItems">
+    <ng-container *ngIf="!menuItem.children || menuItem.children.length === 0">
+      <!-- Regular menu item without children -->
+      <a mat-list-item [routerLink]="menuItem.path" routerLinkActive="active">
+        <mat-icon mat-list-icon>{{ menuItem.iconClasses }}</mat-icon>
+        <p mat-line>{{ menuItem.name }}</p>
+      </a>
+    </ng-container>
+    <ng-container *ngIf="menuItem.children && menuItem.children.length > 0">
+      <!-- Main menu item with children -->
+      <a mat-list-item (click)="menuItem.expanded = !menuItem.expanded">
+        <mat-icon mat-list-icon>{{ menuItem.iconClasses }}</mat-icon>
+        <p mat-line>{{ menuItem.name }}</p>
+        <mat-icon class="expand-icon" *ngIf="menuItem.expanded">expand_less</mat-icon>
+        <mat-icon class="expand-icon" *ngIf="!menuItem.expanded">expand_more</mat-icon>
+      </a>
+      <div *ngIf="menuItem.expanded">
+        <div *ngFor="let childItem of menuItem.children">
+          <!-- Child menu items -->
+          <a mat-list-item [routerLink]="childItem.path" routerLinkActive="active" class="child-item">
+            <mat-icon mat-list-icon>{{ childItem.iconClasses }}</mat-icon>
+            <p mat-line>{{ childItem.name }}</p>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-nav-list>

@@ -1,0 +1,14 @@
+mat-list-item.active {
+    background: rgba(0, 0, 0, .04);
+  }
+  .side-nav-top{
+    text-align: justify;
+    cursor: pointer;
+  }
+  .expand-icon {
+    margin-left: auto;
+  }
+  
+  .child-item {
+    padding-left: 32px;
+  }

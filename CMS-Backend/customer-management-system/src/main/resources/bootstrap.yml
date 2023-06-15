@@ -1,0 +1,43 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: Customer-Management_System
+  entity:
+    package:  com.g2it.cms.entity
+  cross:
+    filter: http://localhost:4200
+    #filter: http://194.163.136.0:4200
+ 
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+ 
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/g2it_cms_db
+    username: root
+    password: root
+    hikari:
+      initialization-fail-timeout: 0
+      connection-timeout: 50000
+      idle-timeout: 300000
+      max-lifetime: 900000
+      maximum-pool-size: 10
+      minimum-idle: 10
+      pool-name: g2itCmsAppConnectionPool
+
+logging:
+  file:
+    name: log/cms.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    #root: DEBUG
+    org.springframework.web: ERROR
+    com.g2it.ems: DEBUG
+    org.hibernate: ERROR
+    com.zaxxer.hikari.HikariConfig: ERROR
+    com.zaxxer.hikari: ERROR
